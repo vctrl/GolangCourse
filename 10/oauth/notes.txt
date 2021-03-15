@@ -1,0 +1,23 @@
+https://vk.com/editapp
+
+https://sequencediagram.org/
+
+title OAuth авторизация
+
+Client->Photolist:Авторизоваться через ВК
+Client<--Photolist:302 https://oauth.vk.com/authorize
+
+Client->VK:Авторизоваться через ВК
+Client<--VK:302 https://example.com/user/login?code=123456
+
+Client->Photolist:https://example.com/user/login?code=123456
+
+Photolist->VK: Code
+Photolist<-VK: Access token\nEmail\nUser ID
+
+Photolist->VK: Get info
+Photolist<-VK: Avatar URL
+
+note over Photolist:Create user\nCreate session
+
+Client<-Photolist:SetCookie

@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
+  # dbPostgres:
+  #   image: postgres:10
+  #   restart: always
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     POSTGRES_USER: root
+  #     POSTGRES_PASSWORD: "123"
+  #     POSTGRES_DB: mydb
+  dbMysql:
+    image: mysql:8.0.3
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "love"
+      MYSQL_DATABASE: photolist
+  # dbMongo:
+  #   image: mongo:3.6.2
+  #   restart: always
+  #   ports:
+  #     - 27017:27017
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: "123"
